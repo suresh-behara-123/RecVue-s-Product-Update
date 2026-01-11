@@ -357,18 +357,18 @@
                 </li>
                 <li class="nav-item">
                     <a href="#whats-new" class="nav-link" onclick="toggleSubmenu('whats-new', event)">2. What's New</a>
-                    <ul class="sub-menu" id="whats-new-submenu">
-                        <li class="nav-item">
-                            <a href="#foundation" class="nav-link" onclick="showSection('foundation', event)">RecVue Foundation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#partner-comp-new" class="nav-link" onclick="showSection('partner-comp-new', event)">Partner Compensation</a>
-                        </li>
+                    <ul class="sub-menu" id="whats-new-submenu">                       
                         <li class="nav-item">
                             <a href="#billing-new" class="nav-link" onclick="showSection('billing-new', event)">Billing Management</a>
                         </li>
+						<li class="nav-item">
+                            <a href="#partner-comp-new" class="nav-link" onclick="showSection('partner-comp-new', event)">Partner Compensation</a>
+                        </li>
                         <li class="nav-item">
                             <a href="#revenue-new" class="nav-link" onclick="showSection('revenue-new', event)">Revenue Management</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="#foundation" class="nav-link" onclick="showSection('foundation', event)">RecVue Foundation</a>
                         </li>
                     </ul>
                 </li>
@@ -389,15 +389,16 @@
                 <li class="nav-item">
                     <a href="#whats-fixed" class="nav-link" onclick="toggleSubmenu('whats-fixed', event)">4. What's Fixed</a>
                     <ul class="sub-menu" id="whats-fixed-submenu">
+						<li class="nav-item">
+                            <a href="#billing-fixed" class="nav-link" onclick="showSection('billing-fixed', event)">Billing Management</a>
+                        </li>
                         <li class="nav-item">
                             <a href="#partner-comp-fixed" class="nav-link" onclick="showSection('partner-comp-fixed', event)">Partner Compensation</a>
                         </li>
                         <li class="nav-item">
                             <a href="#revenue-fixed" class="nav-link" onclick="showSection('revenue-fixed', event)">Revenue Management</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#billing-fixed" class="nav-link" onclick="showSection('billing-fixed', event)">Billing Management</a>
-                        </li>
+                        
                     </ul>
                 </li>
             </ul>
@@ -414,7 +415,7 @@
                     <strong>Note:</strong> This document includes the features and solutions provided to some customers through interim release 25.4.1.
                 </p>
                 <p class="intro-text">
-                    The most significant updates in this release focus on key modules, including <strong>RecVue Foudation, Order, Billing, Partner Compensation, and Revenue Management</strong>.
+                    The most significant updates in this release focus on key modules, including <strong>RecVue Foudation, Contract Management, Billing Management, Partner Compensation, and Revenue Management</strong>.
                 </p>
                 <div class="feature-card">
                     <h4>Key Areas Covered in This Release:</h4>
@@ -425,6 +426,13 @@
                         <li>Partner Compensation</li>
                         <li>Revenue Management</li>
                     </ul>
+					<p>This document contains the following sections:</p>
+					<ul>
+						<li><i>What's New</i></li>
+						<li><i>hat's Changes</i></li>
+						<li><i>What's Fixed</i></li>
+					</ul>
+					
                 </div>
                 <p class="intro-text">
                     For detailed guidance on specific configurations or implementation steps, please contact the <strong>RecVue Support Team</strong>.
@@ -500,7 +508,6 @@
                     <ul>
                         <li><strong>Centralized Visibility:</strong> View all usage records—regardless of source—in one unified location.</li>
                         <li><strong>Operational Efficiency:</strong> Use bulk-action tools to download, fix, and re-upload erroneous data quickly.</li>
-                        <li><strong>Customizable Logic:</strong> Tailor business validation to meet your specific organizational requirements.</li>
                     </ul>
                 </div>
 				
@@ -508,12 +515,7 @@
                     <h4><b>The Manage Customers’ User interface now displays clearer, more identifiable customer information to reduce confusion</b></h4>
                     <p>Previously, the interface displayed customer numbers and status, but because customers shared the same number, users struggled to match them to specific site IDs. They had to open the detailed customer UI to view site information.</p>
                     <p>Now, customer site IDs—unique to each site—replace customer numbers. Users can easily identify and access the right customer details with a single view.</p>
-                    <p><strong>Introduced APIs:</strong></p>
-                    <ul>
-                        <li><strong>Get Sales Representative Information (GET API):</strong> Retrieve existing sales representative details from RecVue for reporting, integration, or validation purposes</li>
-                        <li><strong>Create Sales Representatives (POST API):</strong> Add new sales representatives to RecVue directly through the API to sync new sales reps automatically</li>
-                        <li><strong>Update Sales Representatives (PUT API):</strong> Modify existing sales representative information including Sales rep number, Organization, From & To dates, and Status</li>
-                    </ul>
+                    
                 </div>
 
                 <div class="feature-card">
@@ -542,29 +544,31 @@
                     <h4><b>New Pay Run Tracking Columns</b></h4>
                     <p>We've made it easier to track who's working on your pay runs and when changes are made. Three new columns are now available in the Pay Run interface:</p>
                     <ul>
-                        <li><strong>Created By:</strong> Shows who created the pay run.</li>
-                        <li><strong>Last Updated Date:</strong> Shows when the most recent change was made.</li>
-                        <li><strong>Last Updated By:</strong> Shows who made the most recent change.</li>
+                        <li><strong>Created By:</strong> Displays the user who created the pay run.</li>
+                        <li><strong>Last Updated Date:</strong>  Displays the date of the last update.</li>
+                        <li><strong>Last Updated By:</strong> User who last modified the pay run.</li>
 					<p><em>Note: These columns are hidden by default. To display them, go to Manage Workspace and customize your view. These columns aren't available in Standard Workspace view.</em></p>
                     <p><strong>Key Benefits:</strong></p>
                     <ul>
-                        <li>Track the original creator - The "Created By" field never changes</li>
-                        <li>Monitor recent changes - The "Last Updated" fields automatically refresh.</li>
-                        <li>Organize your data - Filter by any of these new columns.</li>
-                        <li>Search efficiently - Find pay runs using these fields in advanced search.</li>
-                        <li>Import and export - Include these columns when importing or exporting data.</li>
-                        <li>Customize labels - Rename the column headings in Label Setup.</li>
-                    </ul>
+                        <li><b>Track the original creator</b>: The "Created By" field never changes, ensuring you always know who initiated each pay run, even after multiple 
+						modifications. </li>
+                        <li><b>Monitor recent changes</b>: The "Last Updated Date" and "Last Updated By" fields automatically refresh whenever a pay run is modified.</li>
+                        <li><b>Filter your data</b>: Filter pay runs by any of these new columns to quickly find relevant records. </li>
+                        <li><b>Search efficiently</b>: Use Advanced Search to locate pay runs based on creator or modification history.</li> 
+						<li><b>Export capabilities</b>: Include these columns when exporting data to Excel or CSV.</li> 
+						<li><b>Customize labels</b>: Rename column headings in Label Setup to match your organization's terminology.</li> 
+                    </ul>									
 										
-					<p>These columns are hidden by default. To display them, go to Manage Workspace and customize your view. (Note: These columns aren't available in Standard Workspace view.)</p>
-					
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-33672</span>
+                    
                     <h4><b>Partner Management Columns in Order Products Tab</b></h4>
                     <p>Partner Management fields are now available as columns in the Products tab within Orders, providing comprehensive visibility into partner compensation configurations at the product level.</p>
                     
+					<p><strong>What's New:</strong></p>
+					<p>You can now view and track:</p>
+					
                     <p><strong>Cost Information:</strong></p>
                     <ul>
                         <li>Cost - The product's cost</li>
@@ -599,14 +603,13 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-32547 / CS-33502</span>
+                    
                     <h4><b>Auto-Defaulting payable fields at Contract Header</b></h4>
                     <p>Implemented automated defaulting of Partner Compensation fields at the Contract Header level using Order Type List Validations, reducing manual data entry and improving accuracy when creating payment contracts.</p>
                     
                     <p><strong>How it Works:</strong></p>
 					<p>When an order is created, and the order type is selected, these fields are automatically populated. The same defaulting logic applies whether orders are created through the UI, Order Import, or the Order API. </p>
-					<p>This feature helps you work faster, ensures consistency across orders, and reduces the chance of data entry errors. </p>
-                    
+					
                     <p><strong>To Enable this feature:</strong></p>
 					
                     <ul>
@@ -618,18 +621,18 @@
 					<p><strong>What's New:</strong></p>
 					<p>Partner Compensation fields now auto-populate at the Contract Header level based on Order Type configuration when the "Order Type List Validations" profile option is enabled.</p>
 					<ul>
-                        <li>Payment Header Frequency - How often payments occur</li>
-                        <li>Pay Header Price List - Which price list to use</li>
-                        <li>Payment Header Rule - Payment rule to apply</li>
-                        <li>Payment Header Cycle - Payment cycle schedule</li>
-                        <li>Pay Header Currency - Currency type</li>
+                        <li>Payment Header Frequency</li>
+                        <li>Pay Header Price List</li>
+                        <li>Payment Header Rule</li>
+                        <li>Payment Header Cycle</li>
+                        <li>Pay Header Currency</li>
                     </ul>
 					
 					
                 </div>
                 
                 <div class="feature-card">
-                    <span class="badge">CS-34444</span>
+                    
                     <h4><b>Faster Payment Processing for Recurring Fulfilment Orders</b></h4>
                     <p>We've significantly improved the speed at which the system generates payment schedules when processing large pay runs with recurring fulfillment lines and tier pricing.</p>
                     
@@ -640,13 +643,13 @@
                     <p>A new profile [Recurring Fulfilment Optimization] option is available that activates this faster processing. When you turn it on, you'll notice::</p>
                     <ul>
                         <li><b>What changes</b>: Payment schedules will show amounts only up to the pay-through date, with future schedules displaying as zero.</li>
-                        <li><b>What stays the same</b>: Your actual payments are completely unaffected—all payments process correctly as always</li>
-                        
+                        <li><b>What stays the same</b>: Your actual payments are completely unaffected—all payments process correctly as always.</li>
+                        <p>This is purely a display change that improves system performance. Think of it as a simplified view that speeds things up behind the scenes.</p>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="badge">CS-33347</span>
+                   
                     <h4><b>Lightning-Fast Pay Run Search</b></h4>
                     <p>We've dramatically improved the speed at which Advanced Search results appear in the Pay Run interface.</p>
                     <p><strong>What's Improvement:</strong></p>
@@ -658,7 +661,7 @@
 			   </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-34194</span>
+                    
                     <h4><b>Order Amendment: Update Vendor Sites</b></h4>
                     <p>We've added the ability to update vendor sites when a vendor has multiple locations. Here's how this feature works in different scenarios.</p>
                     
@@ -692,7 +695,7 @@
                 <h3>Billing Management</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31094</span>
+                    
                     <h4><b>RecVue now supports consolidated billing for multiple recurring pricing models, even when they start on different dates. This ensures customers receive one unified invoice per billing cycle, improving clarity and operational efficiency</b></h4>
                     
                     <p><strong>The Solution:</strong></p>
@@ -702,7 +705,7 @@
                     <ul>
                         <li>Each pricing model is initially billed pro-rated from its individual start date.</li>
                         <li>After the first billing cycle, all models automatically align to a common billing schedule using a "<b>Bill Offset Day</B>"</li>
-                        <li>•	From that point forward, all charges appear on one unified invoice with separate line items for each model.</li>
+                        <li>From that point forward, all charges appear on one unified invoice with separate line items for each model.</li>
                     </ul>
                     
                     <p><strong>Example:</strong></p>
@@ -710,7 +713,7 @@
                         <li>Model 1 starts April 17, 2025</li>
                         <li>Model 2 starts May 11, 2025</li>
                         <li>First cycle: Each model is billed separately and pro-rated from its start date.</li>
-                        <li>Second cycle onward: Both models align to bill together starting May 17.</li>
+                        <li>Second cycle onward:  Both models align to bill together starting May 17, appearing on the same invoice.</li>
                     </ul>
                     
                     <p><strong>Key Benefits:</strong></p>
@@ -729,22 +732,22 @@
 				</div>	                   
 
                 <div class="feature-card">
-                    <span class="badge">CS-31598</span>
+                    
                     <h4><b>Introducing Nested Price List</b></h4>
                     <p>We are excited to announce the Nested Price List concept, a flexible new way to manage complex pricing structures in RecVue. This feature simplifies your workflow by allowing you to define a "Parent" price list that automatically fills in gaps in your customer-specific price lists. When a price is not present in the primary price list, the system automatically inherits the price from the defined parent price list.</p>
                     <p>Nested Price List concept, along with added capabilities to define discounts on inherited prices and set minimum and maximum limits on list prices.</p>
                     <p><strong>What's New:</strong></p>
                     <ul>
 					<li><b>Master price list inheritance:</b>  Link any customer price list to a "parent" list. When a product price is missing from the customer's list, the system automatically uses the price from the parent list.</li> 
-					</li><b>Set your bill amount boundaries</b>: Define minimum and maximum amounts, plus discounts, for inherited prices to apply desired pricing methods.</li>
+					<li><b>Set your bill amount boundaries</b>: Define minimum and maximum amounts, plus discounts, for inherited prices to apply desired pricing methods.</li>
 					<li><b>Works with tiered pricing too</b>: The inheritance feature also applies to volume-based tier prices, keeping your pricing structure consistent.</li>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="badge">CS-35229</span>
+                    
                     <h4><b>Order Details Report Enhancement</b></h4>
                     <p>We've added a new input parameter to the Order Details Report that allows you to filter by <strong>Line Status</strong>. This makes it easier to track and report on lines based on their current status, giving you more control over the data you need to review.</p>
-					<p>ReVue provided 'All Expired' LOV entries along with other line statuses (Active, Draft, Terminated, Cancelled). “All expired” refers to lines that are no longer actively billing, which may include those that are expired, terminate.</p>
+					<p>ReVue provided 'All Expired' LOV entries along with other line statuses (Active, Draft, Terminated, Cancelled). “All expired” refers to lines that are no longer actively billing, which may include those that are expired or terminated.</p>
 			   </div>
             </section>
 
@@ -754,8 +757,7 @@
                 <h3>Revenue Management</h3>
 
                 <div class="feature-card">
-																																					<span class="badge">CS-34302</span>
-                    <h4><b>Enhancement for SSP Calculation</b></h4>
+					<h4><b>Enhancement for SSP Calculation</b></h4>
                     <p>This release corrects the accuracy of revenue allocation and the Standalone Selling Price (SSP) calculation for cancellation and termination scenarios.</p>
                     
                     <p><strong>Issues Resolved:</strong></p>
@@ -773,7 +775,7 @@
                 </div>
 				
 				<div class="feature-card">
-                    <span class="badge">CS-31212</span>
+                    
                     <h4><b>Reclassification and Revenue Redistribution with New Rules</b></h4>
                     <p><strong>Current Functionality:</strong></p>
 					
@@ -792,7 +794,7 @@
                 </div>
 				
 				<div class="feature-card">
-                    <span class="badge">CS-27203</span>
+                    
                     <h4><b>New "Segment" Field on GL Account Interface:</b></h4>
                     <p><strong>What's New:</strong></p>
 					
@@ -809,7 +811,7 @@
                    </div>
 				   
 				   <div class="feature-card">
-                    <span class="badge">CS-33231</span>
+                    
                     <h4><b>Error Logs and Status of Accrual Process:</b></h4>
                     <p><strong>What's New:</strong></p>
 					
@@ -827,7 +829,7 @@
 				</div>
 
 				<div class="feature-card">
-                    <span class="badge">CS-31051</span>
+                    
                     <h4><b>Better Error Messages for COA Segment Rules:</b></h4>
                     <p><strong>What's New:</strong></p>
 					
@@ -846,7 +848,7 @@
 
 
                 <div class="feature-card">
-                    <span class="badge">CS-33973</span>
+                    
                     <h4><b>General Ledger (GL) Grouping Visibility Enhancement in Summary Report</b></h4>
                     <p>Users can now view the individual grouping details within General Ledger entries through an enhanced Summary Report.</p>
                     
@@ -858,26 +860,25 @@
                         <li><strong>When GL Grouping is disabled (Profile Option = N):</strong> Report displays with standard existing columns</li>
                         <li><strong>When GL Grouping is enabled (Profile Option = Y):</strong>
                             <ul>
-                                <li>Report automatically includes additional columns based on your GL Grouping configuration</li>
-                                <li>Shows custom grouping attributes from Global Context</li>
-                                <li>Provides full visibility into how transactions are grouped</li>
-                            </ul>
+								<li>Report automatically includes additional columns based on your GL Grouping configuration.</li> 
+								<li>Shows custom grouping attributes from Global Context (beyond the default fields: Legal Entity ID, Batch ID, Account Code Combination, and Transaction Currency).</li>
+								<li>Provides full visibility into how transactions are grouped.</li>
+							</ul>
                         </li>
                     </ul>
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-32560</span>
+                   
                     <h4><b>Financial Transaction Date Update Enhancement</b></h4>
                     <p><strong>The Issue:</strong></p>
-                    <p>Once the revenue system processed a billing line, any changes to the Financial Transaction Date weren't recognized. The date became hard-coded, forcing manual recalculation of deferred revenue.</p>
-                    
+                    <p>Once the revenue system processes a billing line, any changes to the Financial Transaction Date aren't recognized. The date becomes hard-coded, forcing manual recalculation of deferred revenue whenever the date needs to change.</p>
                     <p><strong>The Solution:</strong></p>
                     <p>The system now automatically detects and handles changes to Financial Transaction Dates after revenue processing.</p>
                 </div>
 				
 				<div class="feature-card">
-                    <span class="badge">CS-33312</span>
+                    
                     <h4><b>Added Revenue Hold Flag in Waterfall & Rollforward Reports:</b></h4>
                     <p><strong>What's New:</strong></p>
 					
@@ -906,7 +907,7 @@
                 <h3>Partner Compensation</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-32201</span>
+                    
                     <h4><b>One-Time Line Type only allows "One-Time" as Payment Frequency:</b></h4>
                     
                     <p>In the Payment Line UI, when the user selects the line type as One-Time, the Payment Frequency field still allows other options, such as Monthly, Weekly, Quarterly, etc. However, it should allow only One-Time as a payment frequency.</p>
@@ -923,8 +924,8 @@
                     
 					<p><strong>What's New</strong></p>
 					<ul>
-					  <li>Consistent status tracking: Payment Status now uses a unified system across all payment features.</li>
-					  <li>Quick access: Add Payment Status to your workspace using the Manage Workspace so you can monitor payments at a glance.</li>
+					  <li><b>Consistent status tracking</b>: Payment Status now uses a unified system across all payment features.</li>
+					  <li><b>Quick access</b>: Add Payment Status to your workspace using the Manage Workspace so you can monitor payments at a glance.</li>
 					</ul>
 					
 					<p>These improvements help you find the payment information you need faster and with less effort.</li>					
@@ -939,7 +940,7 @@
                 <h3>Revenue Management</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-32362</span>
+                    
                     <h4><b>Customer Specific Revenue Wrapper Program</b></h4>
                     <p>Updated attribute names in the customer-specific revenue wrapper program for improved clarity and consistency.</p>
                     
@@ -969,26 +970,25 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31228</span>
+                    
                     <h4><b>Multiple Legal Entity Selection in General Ledger (GL) Transfer</b></h4>
                     <p>You can now select <strong>multiple legal entities</strong> at once in the GL Transfer interface. Previously, you could choose only one legal entity at a time. This change streamlines the process for users managing multiple legal entities.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31227</span>
+                    
                     <h4><b>Multiple Revenue Contracts (RCs) and Legal Entity Selection in Revenue Accounting Independent Process</b></h4>
-                    <p>You can now select <strong>multiple legal entities</strong> and <strong>multiple orders</strong> at once in the Revenue Accounting Independent Process program from the Requests interface. 
-					  Previously, you could choose only one legal entity and one revenue contract at a time. This change streamlines the process for users managing multiple legal entities.</p>
+                    <p>You can now select multiple legal entities at once in the Revenue Accounting Independent Process program from the Requests interface. Previously, you could choose only one legal entity at a time. This change streamlines the process for users managing multiple legal entities.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31226</span>
+                    
                     <h4><b>Multiple Revenue Contracts (RCs) and Legal Entity Selection in Revenue Release Independent Program</b></h4>
-                    <p>You can now select <strong>multiple legal entities and revenue contracts (RCs)</strong> at once in the Revenue Release Independent program from the Requests interface. Previously, you could choose only one legal entity and revenue contract at a time.</p>
+                    <p>You can now select multiple legal entities and revenue contracts [RCs] at once in the Revenue Release Independent program from the Requests interface. Previously, you could choose only one legal entity and revenue contract at a time. This change streamlines the process for users managing multiple legal entities and revenue contracts. </p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31169</span>
+                    
                     <h4><b>Multiple Legal Entity and Revenue Contract (RC) Selection to Different Reports</b></h4>
                     <p>You can now select <strong>multiple legal entities and revenue contracts</strong> at once in the following reports:</p>
                     <ul>
@@ -1002,7 +1002,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-31168</span>
+                    
                     <h4><b>Multiple Legal Entity Selection in Revenue Interface Program</b></h4>
                     <p>You can now select <strong>multiple legal entities</strong> at once in the Revenue Interface program. Previously, you could choose only one legal entity at a time. This enhancement streamlines the process for users managing multiple legal entities.</p>
                 </div>
@@ -1018,9 +1018,9 @@
                 <h3>RecVue APIs</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-33072</span>
+                    
                     <h4><b>Enhanced Security for RecVue APIs:</b></h4>
-                    <p>Updated attribute names in the customer-specific revenue wrapper program for improved clarity and consistency.</p>
+                    <p>We've enhanced security to better protect your data by ensuring API access aligns with user permissions. .</p>
                     
                     <p><strong>What We’ve Changed:</strong></p>
 					<ul>
@@ -1164,76 +1164,9 @@
                     <td class="permission">Suppliers_RW</td>
                 </tr>
             </tbody>
-        </table>
-					
+        </table>					
                 </div>
-
             </section>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 
@@ -1243,7 +1176,7 @@
                 <h3>Partner Compensation</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-34331 (25.4.1)</span>
+
                     <h4><b>Update Payment Schedules when line is updated from Evergreen to Non-Evergreen and vice versa:</b></h4>
                     
                     <p><strong>Issue 1: Evergreen to Non-Evergreen Conversion</strong></p>
@@ -1254,7 +1187,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-33381</span>
+                    
                     <h4><b>Resolved Incorrect Calculations When Cancelling Deliveries During Pay Run</b></h4>
                     <p><strong>The Issue:</strong></p>
                     <p>Previously, if a user changed a delivery's status from Draft to Cancelled while it was in the Review stage of a pay run (with the Usage Workbench profile disabled), the payment calculations became incorrect.</p>
@@ -1271,7 +1204,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-33966 (R25.4.1)</span>
+                    
                     <h4><b>Resolved Incorrect Calculations When Cancelling Deliveries During Pay Run</b></h4>
                     <p><strong>The Issue:</strong></p>
                     <p>Previously, if a user changed a delivery's status from Draft to Cancelled while it was in the Review stage of a pay run (with the Usage Workbench profile disabled), the payment calculations became incorrect.</p>
@@ -1294,7 +1227,7 @@
                 <h3>Revenue Management</h3>
 
                 <div class="feature-card">
-                    <span class="badge">CS-34900</span>
+                    
                     <h4><b>Contract Asset and Contract Liability Schedule Issues</b></h4>
                     <p>We've resolved two issues affecting Contract Asset (CA) and Contract Liability (CL) schedules:</p>
                     
@@ -1310,7 +1243,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <span class="badge">CS-35083</span>
+                    
                     <h4><b>Performance Obligation (POB) Change Process Now Recognizes Actual Revenue Recognition Date Updates</b></h4>
                     <p><strong>The Issue:</strong></p>
                     <p>When users maintained both an actual release date and a planned release date for a product, changes to the actual date for revenue recognition were not detected by the POB Change and Auto Events process.</p>
@@ -1326,14 +1259,14 @@
                 <h3>Billing Management</h3>
                 
                 <div class="feature-card">
-                    <span class="badge">CS-34421</span>
+                    
                     <h4><b>Incorrect Product Line Amount Display</b></h4>
                     
                     <p>The product page previously displayed incorrect line amounts due to a precision issue, which has now been resolved.</p>
                 				</div>
 
 				<div class="feature-card">	
-                    <span class="badge">CS-34555</span>
+                    
                     <h4><b>Sorting Issue in Billing Tab</b></h4>
                     
                     <p>Previously, the billing tab in the new UI [Order UI] didn’t support sorting quantity, invoice number, and so on. This has been fixed, and the sorting functionality is now working as expected.</p>
@@ -1341,7 +1274,7 @@
 
 				
                 <div class="feature-card">
-                    <span class="badge">CS-29872</span>
+                    
                     <h4><b>Overlapping Tier Issue Resolved</b></h4>
                    <p>Overlapping in tier dates occurred when the price uplift was applied. This issue has been addressed and resolved.</p>
                     
