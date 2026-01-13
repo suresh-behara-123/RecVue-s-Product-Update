@@ -398,7 +398,9 @@
                         <li class="nav-item">
                             <a href="#revenue-fixed" class="nav-link" onclick="showSection('revenue-fixed', event)">Revenue Management</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a href="#foundation-fixed" class="nav-link" onclick="showSection('foundation-fixed', event)">RecVue Foundation</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -429,7 +431,7 @@
 					<p>This document contains the following sections:</p>
 					<ul>
 						<li><i>What's New</i></li>
-						<li><i>What's Changes</i></li>
+						<li><i>hat's Changes</i></li>
 						<li><i>What's Fixed</i></li>
 					</ul>
 					
@@ -938,8 +940,9 @@
             <section id="revenue-changed" class="section">
                 <h2><b>What's Changed</b></h2>
                 <h3>Revenue Management</h3>
-               
+
                 <div class="feature-card">
+                    
                     <h4><b>Multiple Legal Entity Selection in General Ledger (GL) Transfer</b></h4>
                     <p>You can now select <strong>multiple legal entities</strong> at once in the GL Transfer interface. Previously, you could choose only one legal entity at a time. This change streamlines the process for users managing multiple legal entities.</p>
                 </div>
@@ -1249,6 +1252,36 @@
                     
                 </div>
             </section>
+			
+			
+			
+			<!-- What's Fixed - Foundation -->
+            <section id="foundation-fixed" class="section">
+                <h2><b>What's Fixed</b></h2>
+                <h3>RecVue Foundation</h3>
+                
+                <div class="feature-card">
+                    
+                    <h4><b>Fixed: Application timeout during active use and multi-tab sessions</b></h4>
+                    
+					<p>Resolved an issue where the application timed out even during active user interactions or updates. Previously, multiple open RecVue tabs would time out, triggering a FORBIDDEN error that required a page refresh and a return to the homepage—potentially losing unsaved changes. Users can now work seamlessly across tabs without interruptions.</p>
+                
+				</div>
+
+				<div class="feature-card">	
+                    
+                    <h4><b>Fixed: Security Vulnerability Issues:</b></h4>
+                    
+                    <p>The cross-site scripting (XSS) vulnerability on the Product Catalog screen has been fixed. Comprehensive testing with various scenarios and payloads confirms the issue is fully resolved. User input is now properly sanitized to prevent malicious script execution, eliminating the security risk.</p>
+				</div>
+
+            </section>
+			
+			
+			
+			
+			
+			
         </main>
     </div>
 
@@ -1323,5 +1356,3 @@
     <footer style="text-align:center;"> &#169 RecVue, Inc 2026 All Rights Reserved </footer> 
 </body>
 </html>
-
-
