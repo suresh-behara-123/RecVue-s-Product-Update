@@ -1251,6 +1251,26 @@
                    <p>Overlapping in tier dates occurred when the price uplift was applied. This issue has been addressed and resolved.</p>
                     
                 </div>
+				
+				<div class="feature-card">
+                    
+                    <h4><b>Resolved the issue in the Billing schedule collation: </b></h4>
+                   <p>We've addressed a billing schedule calculation issue that occurred when subscription line start dates fell on the 28th, 29th, 30th, or 31st of the month—particularly in February and leap-year scenarios.</p>
+                    <p>Previously, the system miscalculated billing periods for these edge-case start dates.</p>
+					<p><b>Fix</b>: When a subscription line starts on the 28th, billing periods are now calculated correctly. For instance, a line beginning on January 28, 2025, will generate a billing period of February 28, 2025, to March 27, 2025.</p>
+					<p>We introduced a profile option to control the month-end billing behavior:</p>
+					<ul>
+					  <li><b>Disabled (default)</b>: System uses existing billing schedule logic.</li>
+					  <li><b>Enabled</b>: System applies the new and required logic for supported 28th-of-month scenarios.</li>
+					</ul>
+				    <p><b>Note</b>: Billing line start dates are 29th, 30th, or 31st of the month—particularly in February and leap-year scenarios, we are working on it and expect it to be fixed in the coming releases.</p>
+                </div>
+				
+				
+				
+				
+				
+				
             </section>
 			
 			
